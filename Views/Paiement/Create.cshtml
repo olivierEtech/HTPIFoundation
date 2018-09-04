@@ -1,0 +1,168 @@
+﻿@model HTPIFoundation.Models.Paiement
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="page-container">
+    <h1>HTPI, Foundation Internationale enregistrée sous le numéro 11451859 au Third Floor, 207
+        <small>Regent Street, Londres, Royaume Uni, W1B3HH atteste par la présente que</small>
+    </h1>
+
+
+    <form asp-action="Create">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <h2>PAIEMENT</h2>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="MembreID" class="control-label"></label>
+                    <input type="hidden" asp-for="MembreID" class="form-control" value="@ViewBag.id" />
+                    <input for="MembreID1" class="form-control" value="@ViewBag.nomPrenom" disabled />
+                    <span asp-validation-for="MembreID" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="MontantPayer" class="control-label"></label>
+                    <input asp-for="MontantPayer" class="form-control" />
+                    <span asp-validation-for="MontantPayer" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="DatePayement" class="control-label"></label>
+                    <input asp-for="DatePayement" class="form-control" type="date"/>
+                    <span asp-validation-for="DatePayement" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group ">
+                    <label asp-for="MoyenPayement" class="control-label"></label>
+                    <div class="checkbox" >
+                        @Html.RadioButtonFor(model => model.MoyenPayement, 1, new { id = "MoyenPayement1" })
+                        <label for="MoyenPayement1" class="control-label">En espèces</label>
+                        @Html.RadioButtonFor(model => model.MoyenPayement, 0, new { id = "MoyenPayement2" })
+                        <label for="MoyenPayement2" class="control-label">Par Mobile Money</label>
+                    </div>
+                    <span asp-validation-for="MoyenPayement" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="IDTransaction" class="control-label"></label>
+                    <input asp-for="IDTransaction" class="form-control" />
+                    <span asp-validation-for="IDTransaction" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="AvanceAccord" class="control-label"></label>
+                    <div class="checkbox">
+                        @Html.RadioButtonFor(model => model.AvanceAccord, 1, new { id = "AvanceAccord1" })
+                        <label for="AvanceAccord1" class="control-label">Oui</label>
+                        @Html.RadioButtonFor(model => model.AvanceAccord, 0, new { id = "AvanceAccord2" })
+                        <label for="AvanceAccord2" class="control-label">Non</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="MontantAvance" class="control-label"></label>
+                    <input asp-for="MontantAvance" class="form-control" />
+                    <span asp-validation-for="MontantAvance" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="MembreReference" class="control-label"></label>
+                    <input asp-for="MembreReference" class="form-control" />
+                    <span asp-validation-for="MembreReference" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+
+        <br><br>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <strong>A  reconnu avoir lu, compris et signé ce  jour la Charte de membre de la Fondation HTPI et s’engage à la respecter.</strong>
+            </div>
+        </div>
+        <br><br>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 text-left">
+                <span class="rememberer">(*) Champs Obligatoires</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class=" btn btn text-right Submit btn-block">
+                    <input type="submit" value="Valider" class="btn btn-default text-center pull-right" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-controller="Membre" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script type="text/javascript">
+    $(function(){
+        $("#MembreReference").typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1,
+                source: function (request, response) {
+                    $.ajax({
+                        url: '/Membre/GetHTPIMembre/',
+                        data: "{ 'term': '" + request + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            items = [];
+                            map = {};
+                            $.each(data, function (i, item) {
+                                var id = item.value;
+                                var name = item.label;
+                                map[name] = { id: id, name: name };
+                                items.push(name);
+                            });
+                            response(items);
+                            $(".dropdown-menu").css("height", "auto");
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                updater: function (item) {
+                    $('#GetHTPIMembre').val(map[item].id);
+                    return item;
+                }
+            });
+    });
+    </script>
+}

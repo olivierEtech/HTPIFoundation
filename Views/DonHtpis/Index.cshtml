@@ -1,0 +1,89 @@
+﻿@model IEnumerable<HTPIFoundation.Models.DonHtpi>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="page-container">
+    <h1 class="with-btn">
+        Liste
+        <small>des membre</small>
+        <a asp-action="Create" class="btn">Create New</a>
+    </h1>
+
+    <div class="table-responsive">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MembreID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MontantTotal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Detail)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MontantAvance)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FraisTransfert)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DatePayement)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MoyenPayement)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NumRecue)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IDTransaction)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MembreID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MontantTotal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Detail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MontantAvance)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FraisTransfert)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DatePayement)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MoyenPayement)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NumRecue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IDTransaction)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

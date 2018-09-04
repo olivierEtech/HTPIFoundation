@@ -1,0 +1,186 @@
+﻿@model HTPIFoundation.Models.Paiement
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="page-container">
+    <h1 class="with-btn">
+        Détails
+        <small>des paiements</small>
+        <a asp-action="Create" class="btn">Create New</a>
+    </h1>
+
+    <div class="row">
+        <div class="col-md-8 col-sm-12 details">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MontantPayer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MontantPayer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DatePayement)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DatePayement)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MoyenPayement)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MoyenPayement)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IDTransaction)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IDTransaction)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AvanceAccord)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AvanceAccord)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MontantAvance)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MontantAvance)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MembreAvanceID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MembreAvanceID)
+        </dd>
+    </dl>
+</div>
+        <div class="col-md-4 col-sm-12 actions">
+            <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-primary">Edit</a>|
+            <a asp-action="Index" class="btn btn-primary">Back to List</a>|
+            <a data-toggle="modal" href="#myModal" class="btn btn-primary"> Reçu de paiement du droit d’adhésion</a>
+        </div>
+</div>
+</div>
+    <div class="container">
+        <div class="row">
+            <div id="myModal" class="modal fade in">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <a class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
+                            <h4 class="modal-title">Imprimer Votre Reçu</h4>
+                        </div>
+                        <div class="modal-body" id="printableArea">
+                            <div class="printContent">
+                                <div class="logoprint"><img src="~/images/logo.png" alt="Sample Photo" /></div>
+                                <h4>
+                                    HTPI, Foundation Internationale enregistrée sous le numéro 11451859 au Third Floor, 207
+                                    <span>Regent Street, Londres, Royaume Uni, W1B3HH atteste par la présente que</span>
+                                    <label class="control-label" style="color:#cc0a06;">
+                                        @if (@ViewBag.membre.Appellation == 1)
+                                        {
+                                            <span>Mr</span>
+                                        }
+                                        else if (@ViewBag.membre.Appellation == 2)
+                                        {
+                                            <span>Mme</span>
+                                        }
+                                        else if (@ViewBag.membre.Appellation == 3)
+                                        {
+                                            <span>Mlle</span>
+                                        }
+                                        &emsp;
+                                        @ViewBag.membre.Nom&emsp;@ViewBag.membre.Prenom
+                                    </label>
+                                </h4>
+                                <div>
+                                    <label class="control-label"> A offert un don à la fondation d’un montant de :</label> <label class="control-label"> @Html.DisplayFor(model => model.MontantPayer)</label>
+                                </div>
+                                <div>
+                                    <label class="control-label">Payé le :</label>@Html.DisplayFor(model => model.DatePayement)
+                                </div>
+                                <div>
+                                    <label class="control-label"> Par le Moyen de paiement suivant:</label>
+                                    <br />
+                                    <div class="printform">
+                                        <input type="checkbox" /><label class="control-label">En espèces</label>
+                                        <br />
+                                        <input type="checkbox" /><label class="control-label">Par Mobile Money</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="control-label">ID Transaction:</label> @Html.DisplayFor(model => model.IDTransaction)
+                                </div>
+                                <div>
+                                    <label class="control-label"> N° reçu papier:</label>@Html.DisplayFor(model => model.ID)
+                                </div>
+                                <div>
+                                    <label class="control-label"> N° transaction Mobile Money:</label> @Html.DisplayFor(model => model.IDTransaction)
+                                </div>
+                                <div>
+                                    <label class="control-label">Et a bénéficié / pas bénéficié d’une avance:</label>
+                                    <br />
+                                    <div class="printform">
+                                        <input type="checkbox" /><label class="control-label">OUI</label>
+                                        <br />
+                                        <input type="checkbox" /><label class="control-label">NOM</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="control-label">D’un montant de:</label> @Html.DisplayFor(model => model.MontantAvance)
+                                </div>
+                                <div>
+                                    <label class="control-label">De la part de :</label> @Html.DisplayFor(model => model.MembreAvanceID)
+                                </div>
+                                <br />
+                                <br />
+                                <div>
+                                    <label class="control-label">Fait à : </label><input type="text" placeholder="ville de délivrance">
+                                </div>
+                                <div>
+                                    <label class="control-label">Le</label>@DateTime.Now
+                                </div>
+                                <div class="signs">
+                                    <label class="control-label">Cachet de la Fondation et Signature de la Présidente</label>
+                                    <div class="logoprintsign"><img src="~/images/sign.png" alt="Sample Photo" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="btn-group">
+                                <button class="btn btn-danger" id="btn_canel" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                                <button class="btn btn-primary" onclick="printDiv('printableArea')"><span class="glyphicon glyphicon-check"></span> Print</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        <script>
+            function printDiv(divName) {
+                $('#btn_canel').trigger("click");
+                var printContents = document.getElementById(divName).innerHTML;
+                var originalContents = document.body.innerHTML;
+
+                document.body.innerHTML = printContents;
+
+                window.print();
+
+                document.body.innerHTML = originalContents;
+            }
+        </script>
+    }

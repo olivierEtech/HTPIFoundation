@@ -1,0 +1,328 @@
+﻿@model HTPIFoundation.Models.Membre
+
+@{
+    ViewData["Title"] = "Details";
+}
+       
+        <div class="page-container">
+            <h1 class="with-btn">
+                HTPI, Foundation Internationale enregistrée sous le numéro 11451859 au Third Floor, 207
+                <small>Regent Street, Londres, Royaume Uni, W1B3HH atteste par la présente que</small>
+                <a asp-action="Create" class="btn">Create New</a>
+            </h1>
+
+            <div class="row">
+                <div class="col-md-8 col-sm-12 details">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Appellation)
+                        </dt>
+                        <dd>
+                            @if (Model.Appellation == 1)
+                            {
+                                <span>Mr</span>
+                            }
+                            else if (Model.Appellation == 2)
+                            {
+                                <span>Mme</span>
+                            }
+                            else if (Model.Appellation == 3)
+                            {
+                                <span>Mlle</span>
+                            }
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Nom)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Nom)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Prenom)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Prenom)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DateNaissance)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.DateNaissance)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Nationnalite)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Nationnalite)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Profession)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Profession)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Adresse)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Adresse)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CodePostal)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.CodePostal)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Ville)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Ville)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Pays)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Pays.nom_fr_fr)
+                        </dd>
+                        <dt>
+                            Type de pièce d'identité
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.PieceIdentite.TypePieceIdentite.Type)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PieceIdentite.NumPieceIdentite)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.PieceIdentite.NumPieceIdentite)
+                        </dd>
+                        <dt>
+                            Pays de délivrance
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.PieceIdentite.PaysDelivrance.nom_fr_fr)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PieceIdentite.DateDelivrance)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.PieceIdentite.DateDelivrance)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PieceIdentite.DateExpiration)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.PieceIdentite.DateExpiration)
+                        </dd>
+                        <dt>
+                            Pièce d’identité
+                        </dt>
+                        <dd>
+                            @if (ViewBag.UploadPieceIdentiteID != null)
+                            {
+                                <a asp-controller="Membre"
+                                   asp-action="Download"
+                                   asp-route-id="@ViewBag.UploadPieceIdentiteID">
+                                    Download
+                                </a>
+                            }
+                        </dd>
+                        <dt>
+                            Type de justificatif de domicile
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.PieceIdentite.TypeJustDomicile.Type)
+                        </dd>
+                        <dt>
+                            Justificatif de domicile
+                        </dt>
+                        <dd>
+                            @if (ViewBag.UploadJustificatifDomicileID != null)
+                            {
+                                <a asp-controller="Membre"
+                                   asp-action="Download"
+                                   asp-route-id="@ViewBag.UploadJustificatifDomicileID">
+                                    Download
+                                </a>
+                            }
+                        </dd>
+                        <dt>
+                            Extrait d'acte de naissance
+                        </dt>
+                        <dd>
+                            @if (ViewBag.UploadExtraitActeNaissanceID != null)
+                            {
+                                <a asp-controller="Membre"
+                                   asp-action="Download"
+                                   asp-route-id="@ViewBag.UploadExtraitActeNaissanceID">
+                                    Download
+                                </a>
+                            }
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Email)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TelephoneFixe)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TelephoneFixe)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TelephoneMobile)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TelephoneMobile)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NumCompatibleMobileMoney)
+                        </dt>
+                        <dd>
+                            @if (Model.NumCompatibleMobileMoney == 0)
+                            {
+                                <span>Non</span>
+                            }
+                            else if (Model.NumCompatibleMobileMoney == 1)
+                            {
+                                <span>Oui</span>
+                            }
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.OperateurID)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Operateur.Nom)
+                        </dd>
+                        @*<dt>
+                                @Html.DisplayNameFor(model => model.AccepteCharteMembre)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.AccepteCharteMembre)
+                            </dd>*@
+                    </dl>
+                </div>
+                <div class="col-md-4 col-sm-12 actions">
+                    <a asp-action="Index" class="btn btn-primary">Back to List</a>|
+                    <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-primary">Edit</a>|
+                    <a asp-controller="Paiement" asp-action="Create" asp-route-id="@Model.ID" class="btn btn-primary">Paiement du droit d’adhésion</a>|
+                    <a data-toggle="modal" href="#myModal" class="btn btn-primary">Carte membre</a>|
+                    <a asp-controller="DonHtpis" asp-action="Create" asp-route-id="@Model.ID" class="btn btn-primary">A bénéficié de la part de la Fondation d’un don</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div id="myModal" class="modal fade in">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <a class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
+                                <h4 class="modal-title"></h4>
+                            </div>
+                            <div class="modal-body" id="printableArea">
+                                <div class="text_center">
+                                    <img src="~/images/logo.png">
+                                    <h4>
+                                        HTPI, Foundation Internationale enregistrée sous le numéro 11451859 au Third Floor, 207
+                                        Regent Street, Londres, Royaume Uni, W1B3HH atteste par la présente que
+                                    </h4>
+                                </div>
+                                <div class="text_center">
+                                    <label class="control-label" style="color:red">
+                                        @if (Model.Appellation == 1)
+                                        {
+                                            <span>Mr</span>
+                                        }
+                                        else if (Model.Appellation == 2)
+                                        {
+                                            <span>Mme</span>
+                                        }
+                                        else if (Model.Appellation == 3)
+                                        {
+                                            <span>Mlle</span>
+                                        }
+                                        @Html.DisplayFor(model => model.Nom)+" "+@Html.DisplayFor(model => model.Prenom)
+                                    </label>
+                                </div>
+                                <div class="">
+                                    <div class="text_center">
+                                        <span>  Né(e) le :</span>&emsp;<span>@Html.DisplayFor(model => model.DateNaissance)</span>&emsp;
+                                        <span> De Nationalité :</span>&emsp;<span>@Html.DisplayFor(model => model.Nationnalite)</span>&emsp;
+                                        <span>Ayant comme occupation </span>&emsp;<span>@Html.DisplayFor(model => model.Profession)</span>&emsp;
+                                        <span>Résidant à</span>&emsp;<span>@Html.DisplayFor(model => model.Adresse)</span>&emsp; <span>@Html.DisplayFor(model => model.CodePostal)</span>&emsp;<span>@Html.DisplayFor(model => model.Pays.nom_fr_fr)</span>&emsp;
+                                        <span>,Titulaire de la</span>&emsp; <span>@Html.DisplayFor(model => model.PieceIdentite.TypePieceIdentite.Type)</span>&emsp;
+                                        <span>Numéro</span>&emsp;<span>@Html.DisplayFor(model => model.PieceIdentite.NumPieceIdentite)</span>&emsp;
+                                        <span> Délivré à </span>&emsp;<span>@Html.DisplayFor(model => model.PieceIdentite.PaysDelivrance.nom_fr_fr)</span>&emsp;
+                                        <span> Le:</span>&emsp;<span>@Html.DisplayFor(model => model.PieceIdentite.DateDelivrance)</span>&emsp;
+                                    </div>
+                                    <div class="text_center">
+                                        <span class="control-label"> N° de téléphone fixe:</span> <span class="control-label">@Html.DisplayFor(model => model.TelephoneFixe),</span>
+                                        <span class="control-label"> N° de téléphone mobile:</span> <span class="control-label">@Html.DisplayFor(model => model.TelephoneMobile)</span>
+                                    </div>
+                                    <div class="text_center">
+                                        <span class="control-label"> Est membre de droit de la Fondation HTPI et porte l’identifiant unique </span> <label class="control-label">@Html.DisplayFor(model => model.ID_HTPI) </label>
+                                    </div>
+                                    <div class="text_center">
+                                        <span>
+                                            @if (Model.Appellation == 1)
+                                            {
+                                                <span>Mr</span>
+                                            }
+                                            else if (Model.Appellation == 2)
+                                            {
+                                                <span>Mme</span>
+                                            }
+                                            else if (Model.Appellation == 3)
+                                            {
+                                                <span>Mlle</span>
+                                            }
+                                            <span> @Html.DisplayFor(model => model.Nom)</span> &emsp;@Html.DisplayFor(model => model.Prenom)
+                                            <span>reconnu avoir lu, compris et signé ce jour la Charte de membre de la Fondation HTPI et s’engage à la respecter.</span>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <sapn class="control-label"> Fait à :</sapn>&emsp;<span class="control-label"><input type="text" style="border:none"></span>
+                                    </div>
+                                    <div>
+                                        <span class="control-label"> Le :</span>&emsp;<span class="control-label">@DateTime.Now</span>
+                                    </div>
+                                    <div class="signs">
+                                        <label class="control-label">Cachet de la Fondation et Signature de la Présidente</label>
+                                        <div class="logoprintsign"><img src="~/images/sign.png" alt="Sample Photo" /></div>
+                                    </div>
+                                    <br />
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="btn-group">
+                                    <button class="btn btn-danger" id="btn_canel" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                                    <button class="btn btn-primary" onclick="printDiv('printableArea')"><span class="glyphicon glyphicon-check"></span> Print</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            <script>
+                function printDiv(divName) {
+                    $('#btn_canel').trigger("click");
+                    var printContents = document.getElementById(divName).innerHTML;
+                    var originalContents = document.body.innerHTML;
+
+                    document.body.innerHTML = printContents;
+
+                    window.print();
+
+                    document.body.innerHTML = originalContents;
+                }
+            </script>
+        }

@@ -1,0 +1,69 @@
+﻿@model HTPIFoundation.Models.Paiement
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Paiement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MontantPayer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MontantPayer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DatePayement)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DatePayement)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MoyenPayement)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MoyenPayement)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IDTransaction)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IDTransaction)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AvanceAccord)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AvanceAccord)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MontantAvance)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MontantAvance)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MembreAvanceID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MembreAvanceID)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

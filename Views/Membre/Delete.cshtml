@@ -1,0 +1,118 @@
+﻿@model HTPIFoundation.Models.Membre
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Membre</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Appellation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Appellation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Prenom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateNaissance)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateNaissance)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nationnalite)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nationnalite)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Profession)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Profession)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresse)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Adresse)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CodePostal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CodePostal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ville)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ville)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pays)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pays)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TelephoneFixe)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TelephoneFixe)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TelephoneMobile)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TelephoneMobile)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumCompatibleMobileMoney)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumCompatibleMobileMoney)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OperateurID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OperateurID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AccepteCharteMembre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AccepteCharteMembre)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

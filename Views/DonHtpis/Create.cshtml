@@ -1,0 +1,120 @@
+﻿@model HTPIFoundation.Models.DonHtpi
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="page-container">
+    <h1>
+        HTPI, Foundation Internationale enregistrée sous le numéro 11451859 au Third Floor, 207
+        <small>Regent Street, Londres, Royaume Uni, W1B3HH atteste par la présente que</small>
+    </h1>
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <h2>A bénéficié de la part de la Fondation d’un don </h2>
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                <div class="form-group ">
+                    <label asp-for="MembreID" class="control-label"></label>
+                    <input type="hidden" asp-for="MembreID" class="form-control" value="@ViewBag.id" />
+                    <input for="MembreID1" class="form-control" value="@ViewBag.nomPrenom" />
+                    <span asp-validation-for="MembreID" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                <div class="form-group ">
+                    <label asp-for="MontantTotal" class="control-label"></label>
+                    <input asp-for="MontantTotal" class="form-control" />
+                    <span asp-validation-for="MontantTotal" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group ">
+                    <label asp-for="Detail" class="control-label"></label>
+                    <input asp-for="Detail" class="form-control" />
+                    <span asp-validation-for="Detail" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                <div class="form-group">
+                    <label asp-for="MontantAvance" class="control-label"></label>
+                    <input asp-for="MontantAvance" class="form-control" />
+                    <span asp-validation-for="MontantAvance" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                <div class="form-group">
+                    <label asp-for="FraisTransfert" class="control-label"></label>
+                    <input asp-for="FraisTransfert" class="form-control" />
+                    <span asp-validation-for="FraisTransfert" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group">
+                    <label asp-for="DatePayement" class="control-label"></label>
+                    <input asp-for="DatePayement" class="form-control" type="date" />
+                    <span asp-validation-for="DatePayement" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                <div class="form-group">
+                    <label asp-for="MoyenPayement" class="control-label"></label>
+                    <div class="checkbox">
+                        @Html.RadioButtonFor(model => model.MoyenPayement, 1, new { id = "MoyenPayement1" })
+                        <label for="MoyenPayement1" class="control-label">Oui</label>
+                        @Html.RadioButtonFor(model => model.MoyenPayement, 0, new { id = "MoyenPayement2" })
+                        <label for="MoyenPayement2" class="control-label">Non</label>
+                    </div>
+                    <span asp-validation-for="MoyenPayement" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                <div class="form-group">
+                    <label asp-for="NumRecue" class="control-label"></label>
+                    <input asp-for="NumRecue" class="form-control" />
+                    <span asp-validation-for="NumRecue" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                <div class="form-group">
+                    <label asp-for="IDTransaction" class="control-label"></label>
+                    <input asp-for="IDTransaction" class="form-control" />
+                    <span asp-validation-for="IDTransaction" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 text-left">
+                <span class="rememberer">(*) Champs Obligatoires</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class=" btn btn text-right Submit btn-block">
+                    <input type="submit" value="Valider" class="btn btn-default text-center pull-right" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

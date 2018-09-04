@@ -1,0 +1,584 @@
+﻿@model HTPIFoundation.Models.Membre
+
+@{
+ViewData["Title"] = "Create";
+}
+<div class="page-container">
+    <h1>Formulaire d'adhésion à la Fondation HTPI - Help The People International
+        <small>Veuillez remplir en lettres majuscules et cocher la case correspondante</small>
+    </h1>
+
+
+    <form asp-action="Create">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="Appellation" class="control-label">Appellation *</label>
+                    <div class="radio">
+                        @Html.RadioButtonFor(model => model.Appellation, 1, new { id = "Appellation1" })
+                        <label for="Appellation1" class="control-label">Mr</label>
+                        @Html.RadioButtonFor(model => model.Appellation, 2, new { id = "Appellation2"})
+                        <label for="Appellation2" class="control-label">Mme</label>
+                        @Html.RadioButtonFor(model => model.Appellation, 3, new { id = "Appellation3" })
+                        <label for="Appellation3" class="control-label">Mlle</label>
+
+                    </div>
+                    <span asp-validation-for="Appellation" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="Nom" class="control-label">NOM *</label>
+                    <input asp-for="Nom" class="form-control" />
+                    <span asp-validation-for="Nom" class="text-danger error"></span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="Prenom" class="control-label">Prénom(s) *</label>
+                    <input asp-for="Prenom" class="form-control" />
+                    <span asp-validation-for="Prenom" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="DateNaissance" class="control-label">Date de naissance *</label>
+                    <input type="date" asp-for="DateNaissance" class="form-control" />
+                    <span asp-validation-for="DateNaissance" class="text-danger error"></span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="Nationnalite" class="control-label">Nationalité *</label>
+                    <input asp-for="Nationnalite" class="form-control" />
+                    <span asp-validation-for="Nationnalite" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="Profession" class="control-label">Profession *</label>
+                    <input asp-for="Profession" class="form-control" />
+                    <span asp-validation-for="Profession" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+
+
+        <h2>ADRESSE DE RESIDENCE *  </h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group form-inline">
+                    <label asp-for="Adresse" class="control-label">Nom et numéro de rue ou toute indication utile</label>
+                    <input asp-for="Adresse" class="form-control" />
+                    <span asp-validation-for="Adresse" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="CodePostal" class="control-label">Code postal *</label>
+                    <input asp-for="CodePostal" class="form-control p100"  />
+                    <span asp-validation-for="CodePostal" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="Ville" class="control-label">Ville et/ou Village de résidence *</label>
+                    <input asp-for="Ville" class="form-control" />
+                    <span asp-validation-for="Ville" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="MembrePays" class="control-label">Pays*</label>
+                    <input asp-for="MembrePays" class="form-control" />
+                    <span asp-validation-for="MembrePays" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="PieceIdentite" class="control-label">Type de pièce d'identité *</label>
+                    <div class="radio">
+                        @foreach(TypePieceIdentite typePiece in ViewBag.TypePieceIdentites){
+                            @Html.RadioButtonFor(model => model.PieceIdentite.TypePieceIdentiteID, typePiece.ID, new { id = "id_type_piece_identite"+typePiece.ID })
+                            @Html.Label("id_type_piece_identite"+typePiece.ID, typePiece.Type, new {@class="control-label"})
+                        }
+                    </div>
+                    <span asp-validation-for="PieceIdentite.TypePieceIdentiteID" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="PieceIdentite.NumPieceIdentite" class="control-label">Numéro de pièce d’identité *</label>
+                    <input asp-for="PieceIdentite.NumPieceIdentite" class="form-control" />
+                    <span asp-validation-for="PieceIdentite.NumPieceIdentite" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="PieceIdentite.DelivrancePays" class="control-label">Pays de délivrance *</label>
+                    <input asp-for="PieceIdentite.DelivrancePays" class="form-control" />
+                    <span asp-validation-for="PieceIdentite.DelivrancePays" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="PieceIdentite.DateDelivrance" class="control-label">Date de délivrance *</label>
+                    <input type="date" asp-for="PieceIdentite.DateDelivrance" class="form-control" />
+                    <span asp-validation-for="PieceIdentite.DateDelivrance" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="PieceIdentite.DateExpiration" class="control-label">Date d'expiration</label>
+                    <input type="date" asp-for="PieceIdentite.DateExpiration" class="form-control" />
+                    <span asp-validation-for="PieceIdentite.DateExpiration" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label class="control-label">Charger la pièce d’identité *</label>
+                    <input class="form-control" type="file" id="PieceIdentiteFile"/>
+                    <label class="PieceIdentiteFileLabelInputFile">Envoyer Fichier</label>
+                    <span class="text-info error" id="PieceIdentiteFileName"></span>
+                    <input type="hidden" id="UploadPieceIdentiteID" name="PieceIdentite.UploadPieceIdentiteID"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="PieceIdentite.TypeJustDomicileID" class="control-label">Type de justificatif de domicile</label>
+                    <div class="radio">
+                        @foreach(TypeJustificatifDomicile typeJustification in ViewBag.TypeJustDomiciles){
+                            @Html.RadioButtonFor(model => model.PieceIdentite.TypeJustDomicileID, typeJustification.ID, new { id = "id_type_justificatif_domicile"+typeJustification.ID })
+                            @Html.Label("id_type_justificatif_domicile"+typeJustification.ID, typeJustification.Type, new {@class="control-label"})
+                        }
+                        <input asp-for="PieceIdentite.TypeJustDomicileID" class="form-control" />
+                    </div>
+                    <span asp-validation-for="PieceIdentite.TypeJustDomicileID" class="text-danger error"></span>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label class="control-label">Charger le justificatif de domicile</label>
+                    <input class="form-control" type="file" id="JustificatifDomicileFile"/>
+                    <label class="JustificatifDomicileFileLabelInputFile">Envoyer Fichier</label>
+                    <span class="text-info error" id="JustificatifDomicileFileName"></span>
+                    <input type="hidden" id="UploadJustificatifDomicileID" name="PieceIdentite.UploadJustificatifDomicileID"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label class="control-label">Charger l'extrait d'acte de naissance</label>
+                    <input class="form-control" type="file" id="ActeNaissanceFile"/>
+                    <label class="ActeNaissanceFileLabelInputFile">Envoyer Fichier</label>
+                    <span class="text-info error" id="ActeNaissanceFileName"></span>
+                    <input type="hidden" id="UploadActeDeNaissanceID" name="PieceIdentite.UploadActeDeNaissanceID"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="Email" class="control-label">Email</label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="TelephoneFixe" class="control-label">Numéro de téléphone fixe</label>
+                    <input asp-for="TelephoneFixe" class="form-control" />
+                    <span asp-validation-for="TelephoneFixe" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="TelephoneMobile" class="control-label">N° de téléphone mobile</label>
+                    <input asp-for="TelephoneMobile" class="form-control" />
+                    <span asp-validation-for="TelephoneMobile" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="NumCompatibleMobileMoney" class="control-label">Numéro compatible Mobile Money ? *</label>
+                    <div class="checkbox">
+                        @Html.RadioButtonFor(model => model.NumCompatibleMobileMoney, 1, new { id = "NumCompatibleMobileMoney1" })
+                        <label for="NumCompatibleMobileMoney1" class="control-label">Oui</label>
+                        @Html.RadioButtonFor(model => model.NumCompatibleMobileMoney, 0, new { id = "NumCompatibleMobileMoney2" })
+                        <label for="NumCompatibleMobileMoney2" class="control-label">Non</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="form-group form-inline">
+                    <label asp-for="OperateurID" class="control-label">Si oui, quel opérateur ?</label>
+                    <select name="OperateurID" class="form-control" asp-for="OperateurID" id="OperateurID">
+                        <option selected="selected" value="">Sélectionner un opérateur</option>
+                        @foreach(Operateur op in ViewBag.Operateurs){
+                            <option value="@op.ID">@op.Nom</option>
+                        }
+                    </select>
+                    <span asp-validation-for="OperateurID" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+
+
+        <br><br>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="form-group form-inline widerLabel">
+                    <label asp-for="MembreReference" class="control-label">L'ID de la personne qui vous a parlé de la Fondation HTPI</label>
+                    <input asp-for="MembreReference" class="form-control" />
+                    <span asp-validation-for="MembreReference" class="text-danger error"></span>
+                </div>
+            </div>
+        </div>
+        @*<div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="form-group form-inline widerLabel">
+                    <label asp-for="NumCompatibleMobileMoney" class="control-label">En adhérent à la Fondation HTPI je m engage à respecter la Charte du membre *</label>
+                    <div class="checkbox">
+                        @Html.RadioButtonFor(model => model.AccepteCharteMembre, 1, new { id = "AccepteCharteMembre1" })
+                        <label for="AccepteCharteMembre1" class="control-label">J'accepte</label>
+                        @Html.RadioButtonFor(model => model.AccepteCharteMembre, 0, new { id = "AccepteCharteMembre2" })
+                        <label for="AccepteCharteMembre2" class="control-label">Je décline</label>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+        <br><br>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 text-left">
+                <span class="rememberer">(*) Champs Obligatoires</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class=" btn btn text-right Submit btn-block">
+                    <input type="button" value="Envoyer" class="btn btn-default text-center pull-right" id="SaveForm" />
+                    <input type="submit" value="Envoyer" id="SaveFormSubmit" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="MobileMOneyModal" tabindex="-1" role="dialog" aria-labelledby="MobileMOneyModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="MobileMOneyModalLabel">Vous pouvez payer le droit d'adhésion (60 000 Ariary) par l'un des opérateurs suivants :</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3"><img Width="80%" src="~/images/telma.png" alt="Italian Trulli"> </div><br>
+                    <div class="col-md-6" style="color:darkolivegreen">TELMA MOBILE MONEY: 034 21 043 01</div><br>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><img Width="80%" src="~/images/orange.png" alt="Italian Trulli"> </div><br>
+                    <div class="col-md-6" style="color:black">ORANGE MOBILE MONEY: xx xx xxx xx</div><br>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><img Width="80%" src="~/images/airtel.jfif" alt="Italian Trulli"> </div><br>
+                    <div class="col-md-6" style="color:red">AIRTEL MOBILE MONEY : xx xx xxx xx</div><br>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+<script type="text/javascript">
+        var saved = @ViewBag.Saved;
+        $(function () {
+            $("#SaveFormSubmit").hide();
+
+            $("#MembrePays").typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1,
+                source: function (request, response) {
+                    $.ajax({
+                        url: '/Membre/GetPays/',
+                        data: "{ 'term': '" + request + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            items = [];
+                            map = {};
+                            $.each(data, function (i, item) {
+                                var id = item.value;
+                                var name = item.label;
+                                map[name] = { id: id, name: name };
+                                items.push(name);
+                            });
+                            response(items);
+                            $(".dropdown-menu").css("height", "auto");
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                updater: function (item) {
+                    $('#Pays').val(map[item].id);
+                    return item;
+                }
+            });
+
+            $("#PieceIdentite_DelivrancePays").typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1,
+                source: function (request, response) {
+                    $.ajax({
+                        url: '/Membre/GetPays/',
+                        data: "{ 'term': '" + request + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            items = [];
+                            map = {};
+                            $.each(data, function (i, item) {
+                                var id = item.value;
+                                var name = item.label;
+                                map[name] = { id: id, name: name };
+                                items.push(name);
+                            });
+                            response(items);
+                            $(".dropdown-menu").css("height", "auto");
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                updater: function (item) {
+                    $('#Pays').val(map[item].id);
+                    return item;
+                }
+            });
+
+            $("#MembreReference").typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1,
+                source: function (request, response) {
+                    $.ajax({
+                        url: '/Membre/GetHTPIMembre/',
+                        data: "{ 'term': '" + request + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            items = [];
+                            map = {};
+                            $.each(data, function (i, item) {
+                                var id = item.value;
+                                var name = item.label;
+                                map[name] = { id: id, name: name };
+                                items.push(name);
+                            });
+                            response(items);
+                            $(".dropdown-menu").css("height", "auto");
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                updater: function (item) {
+                    $('#GetHTPIMembre').val(map[item].id);
+                    return item;
+                }
+            });
+
+            $(".PieceIdentiteFileLabelInputFile").click(function(e){
+                $("#PieceIdentiteFile").trigger('click');
+            });
+
+            $(".JustificatifDomicileFileLabelInputFile").click(function(e){
+                $("#JustificatifDomicileFile").trigger('click');
+            });
+
+            $(".ActeNaissanceFileLabelInputFile").click(function(e){
+                $("#ActeNaissanceFile").trigger('click');
+            });
+
+            $("#PieceIdentiteFile").change(function(e){
+                $("#PieceIdentiteFileName")[0].textContent = $("#PieceIdentiteFile")[0].value.replace("C:\\fakepath\\", "");
+                uploadPieceIdentiteFile();
+            });
+
+            $("#JustificatifDomicileFile").change(function(e){
+                $("#JustificatifDomicileFileName")[0].textContent = $("#JustificatifDomicileFile")[0].value.replace("C:\\fakepath\\", "");
+                uploadJustificatifDomicileFile();
+            });
+
+            $("#ActeNaissanceFile").change(function(e){
+                $("#ActeNaissanceFileName")[0].textContent = $("#ActeNaissanceFile")[0].value.replace("C:\\fakepath\\", "");
+                UploadActeNaissanceFile();
+            });
+
+            if(saved === 1){
+                $('#MobileMOneyModal').modal('show');
+            }
+
+            $("#SaveForm").click(function(e){
+                var pieceIdentite = $("input[name='PieceIdentite.TypePieceIdentiteID']:checked").val();
+                if(pieceIdentite === undefined){
+                    alert("Type pièce d'indentité manquant!!!");
+                }
+
+                var appelation = $("input[name='Appellation']:checked").val();
+                if(appelation === undefined){
+                    alert("Appelation manquant!!!");
+                }
+
+                var pieceIdentiteFileID = $("#UploadPieceIdentiteID").val();
+                if(pieceIdentiteFileID === ""){
+                    alert("Pièce d'indentité manquant!!!");
+                }
+
+                if(pieceIdentite !== undefined && pieceIdentiteFileID !== "" && appelation !== undefined){
+                    $("#SaveFormSubmit").click();
+                }
+            });
+        });
+
+        function uploadPieceIdentiteFile() {
+                var input = $("#PieceIdentiteFile")
+                var files = input[0].files;
+                var formData = new FormData();
+
+                for (var i = 0; i != files.length; i++) {
+                    formData.append("files", files[i]);
+                }
+
+                $.ajax(
+                    {
+                        url: "/Membre/UploadFile",
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        type: "POST",
+                        success: function (data) {
+                            $("#UploadPieceIdentiteID")[0].value = data.id;
+                        }
+                    }
+                );
+        }
+
+        function uploadJustificatifDomicileFile() {
+                var input = $("#JustificatifDomicileFile")
+                var files = input[0].files;
+                var formData = new FormData();
+
+                for (var i = 0; i != files.length; i++) {
+                    formData.append("files", files[i]);
+                }
+
+                $.ajax(
+                    {
+                        url: "/Membre/UploadFile",
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        type: "POST",
+                        success: function (data) {
+                            $("#UploadJustificatifDomicileID")[0].value = data.id;
+                        }
+                    }
+                );
+        }
+
+        function UploadActeNaissanceFile() {
+                var input = $("#ActeNaissanceFile")
+                var files = input[0].files;
+                var formData = new FormData();
+
+                for (var i = 0; i != files.length; i++) {
+                    formData.append("files", files[i]);
+                }
+
+                $.ajax(
+                    {
+                        url: "/Membre/UploadFile",
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        type: "POST",
+                        success: function (data) {
+                            $("#UploadActeDeNaissanceID")[0].value = data.id;
+                        }
+                    }
+                );
+        }
+    </script>
+}

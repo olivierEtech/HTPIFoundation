@@ -1,0 +1,489 @@
+﻿body#LoginForm{
+    background-image: url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 10px;
+}
+
+.form-heading {
+    color: #fff;
+    font-size: 23px;
+}
+
+.panel h2 {
+    color: #444444;
+    font-size: 18px;
+    margin: 0 0 8px 0;
+}
+
+.panel p {
+    color: #777777;
+    font-size: 14px;
+    margin-bottom: 30px;
+    line-height: 24px;
+}
+
+.login-form .form-control {
+    background: #f7f7f7 none repeat scroll 0 0;
+    border: 1px solid #d4d4d4;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.main-div {
+    background: #ffffff none repeat scroll 0 0;
+    border-radius: 2px;
+    margin: 10px auto 30px;
+    max-width: 38%;
+    padding: 50px 70px 70px 71px;
+}
+
+.login-form .form-group {
+    margin-bottom: 10px;
+}
+
+.login-form {
+    text-align: center;
+}
+
+.forgot a {
+    color: #777777;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.login-form .btn.btn-primary {
+    background: #f0ad4e none repeat scroll 0 0;
+    border-color: #f0ad4e;
+    color: #ffffff;
+    font-size: 14px;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    padding: 0;
+}
+
+.forgot {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.botto-text {
+    color: #ffffff;
+    font-size: 14px;
+    margin: auto;
+}
+
+.login-form .btn.btn-primary.reset {
+    background: #ff9900 none repeat scroll 0 0;
+}
+
+.back {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.back a {
+    color: #444444;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.bar_menu {
+    width: 100%;
+}
+li:last-child {
+    float: right;
+}
+.banner {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    object-fit: cover;
+    position: relative;
+}
+.banner img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*STYLE  FORMS*/
+.page-container {
+   max-width: 1024px;
+   margin: 0 auto;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #6a6a6a;
+}
+.page-container  h1{
+    box-sizing: border-box;
+    color: #000000;
+    font-size: 20px;
+    margin: 80px 0 50px;
+    position: relative;
+}
+.page-container  h1 small{
+    color: #6a6a6a;
+    font-size: 18px;
+    display: block;;
+    line-height: 18px;
+}
+.page-container  h1.with-btn {
+    padding-right: 120px;
+}
+.page-container  h1.with-btn a{
+    color: #6a6a6a;
+    font-size: 12px;
+    display: inline-block;
+    line-height: 18px;
+    background: #cc0a06;
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: uppercase;
+    position:  absolute;
+    bottom: 0;
+    right: 0;
+}
+.page-container  h2{
+    border-bottom:1px solid #902e2e;
+    color: #902e2e;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 20px 0;
+    padding: 5px 0;
+    text-transform: uppercase;
+
+}
+.page-container .form-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+}
+.page-container .form-group .error {
+    display: block;;
+    width: 100%;
+    flex: inherit;
+    text-align: right;
+}
+.page-container .control-label {
+    font-weight: 400;
+    flex-basis: 260px;
+}
+.widerLabel .control-label {
+    font-weight: 400;
+    flex-basis: 260px;
+    flex-grow:1;
+    max-width: 540px;
+}
+.page-container .form-control {
+    background: #faf8f8;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.12) inset;
+    border: none;
+    flex: 1 1 0;
+}
+.page-container .form-control.p100 {
+    max-width: 100px;
+    min-width: 100px;
+    width: 100px;
+}
+.page-container  .checkbox,
+.page-container  .radio {
+    display: block;;
+}
+.page-container  .checkbox input ,
+.page-container  .radio input {
+    display: none;
+}
+.page-container  .checkbox input+label,
+.page-container  .radio input+label {
+    text-align: center;
+    display: inline-block;
+    background: #f8f5f5;
+    padding: 6px;
+    border-radius: 6px;
+    margin: 0 2px;
+    min-width: 60px;
+}
+.page-container  .checkbox input:checked+label,
+.page-container  .radio input:checked+label {
+    display: inline-block;
+    background: #cc0a06;
+    color: #ffffff;
+}
+.page-container input[type="file"].form-control  {
+    display: none;
+}
+.page-container input[type="file"].form-control+label  {
+    background: #cc0a06;
+    border-radius: 4px;
+    color: #ffffff;
+    padding:  6px 6px 6px 36px;
+    text-align: center;
+    display: inline-block;
+    width: 160px;
+    cursor: pointer;
+    position: relative;;
+    overflow: hidden;
+}
+.page-container input[type="file"].form-control+label:before  {
+    background: url("../images/files.png") center center no-repeat #323232;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 30px;
+
+
+}
+.page-container .table tr th {
+    background: #d67775;
+    color: #ffffff;
+}
+.page-container .table tr th,
+.page-container .table tr td {
+    vertical-align: middle;
+}
+.page-container .table tr:nth-child(odd) {
+    background: #f9f8f8;
+}
+.page-container .table tr:nth-child(even) {
+    background: #ffffff;
+}
+.page-container .table tr td.actions{
+    white-space: nowrap;
+}
+
+.details {
+    background: #f3f3f3;
+    padding: 20px;
+}
+.details dt,
+.details dd {
+    padding: 5px;
+    height: 30px;
+    border-bottom: 1px solid #dedddd;
+}
+.actions {
+    text-align: right;
+    padding-top: 30px;
+}
+.actions a {
+    display: block;
+    min-width: 250px;
+    margin: 10px 5px;
+}
+.actions a ,
+.page-container .table tr td a{
+    background: #cc0a06;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 11px;
+    color: #ffffff;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+}
+a.btn-primary {
+    background: #337ab7 !important;
+}
+a:hover {
+    opacity: 0.85;
+}
+.rememberer {
+    color: #cc0a06;
+}
+.Submit .btn{
+    background: #cc0a06;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    min-width: 150px;
+}
+/*STYLE  FORMS*/
+
+/*OVERIDE MODAL CSS*/
+.modal-header {
+    background: #cc0a06;
+}
+.modal-header * {
+    color: #ffffff;
+}
+.modal-header a {
+    position: absolute;
+    right: 5px;
+    background: transparent;
+    border: transparent;
+}
+
+.logoprint {
+    display: none;
+}
+
+#printableArea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+}
+#printableArea .printContent {
+    margin:0;
+    padding: 20px;
+    border: 1px solid #000000 ;
+}
+#printableArea h4 {
+    font-size: 14px;
+    font-weight: 700;
+}
+#printableArea h4 span {
+    font-size: 12px;
+}
+
+#printableArea div {
+    font-size: 12px;
+    padding: 0;
+    position:relative;
+    z-index:1;
+}
+#printableArea div label  {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding-right: 10px;
+}
+#printableArea h4 label {
+    font-size: 14px;
+    display: block;
+    color: #cc0a06;
+    text-align: center;
+    padding: 20px 0;
+    margin: 0 auto;
+    font-weight: 700;
+}
+#printableArea div input[type="checkbox"]  {
+    margin-left: 195px;
+}
+.logoprintsign {
+    position: absolute !important;
+    width: 100px;
+    z-index: -1 !important;
+    top: -50px;
+    left: 100px;
+}
+
+    .logoprintsign img {
+        width: 100px;
+        height: auto;
+    }
+.signs {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+@media print {
+    #printableArea {
+        width: 100% ;
+    }
+    #printableArea .printContent {
+        margin: 1rem;
+        padding: 1rem;
+        border: 3px solid #000000 ;
+    }
+    #printableArea * {
+        font-size: 2rem !important; ;
+    }
+    #printableArea div {
+        padding: .5rem 0 ;
+      
+    }
+    
+    .logoprint {
+        display: block;
+        text-align: center;
+    }
+    .logoprint img {
+        display: block;
+        margin: 2rem auto 2rem;
+        width: 30rem;
+    }
+    h4 {
+        font-size: 2rem !important;
+        color: #000000;
+    }
+    h4 span {
+        font-size: 1.5rem !important;
+        display: block;
+    }
+    h4 label {
+        font-size: 2rem !important;
+        display: block;
+        text-align: center;
+        margin: 3rem auto;
+        color:#cc0a06 !important;
+        font-weight: 700;
+    }
+    div.printform  {
+        margin-left: 25rem;
+    }
+    .signs {
+        position: relative;
+        z-index: 2;
+        margin-top:10rem;
+        margin-bottom:0;
+
+    }
+    .signs label {
+        top: 0;
+        position: absolute !important;
+        z-index: 2 !important;
+        left: 0;
+    }
+    .logoprintsign {
+        width:20rem;
+    }
+    
+    .logoprintsign img {
+        width: 15rem;
+        height:auto;
+        display:block;
+    }
+}
+
+/*homepage*/
+.homeImage {
+    width: 100%;
+}
+.homeImage img {
+    width: 100%;
+    max-width: 1650px;
+}
+.validateReponse {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.78);
+}
+.validateReponse {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.78);
+}
+/*homepage*/

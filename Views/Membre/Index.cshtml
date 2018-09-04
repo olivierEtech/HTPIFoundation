@@ -1,0 +1,101 @@
+﻿@model IEnumerable<HTPIFoundation.Models.Membre>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="page-container">
+    <h1 class="with-btn">
+        Liste
+        <small>des membre</small>
+        <a asp-action="Create" class="btn">Create New</a>
+    </h1>
+
+    <div class="table-responsive">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ID_HTPI)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Appellation)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Prenom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateNaissance)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Profession)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Pays)
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.DateExpiration)
+                        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID_HTPI)
+                        </td>
+                        <td>
+                            @if (item.Appellation == 1)
+                {
+                                <span>Mr</span>
+                            }
+                            else if (item.Appellation == 2)
+                            {
+                                <span>Mme</span>
+                            }
+                            else if (item.Appellation == 3)
+                            {
+                                <span>Mlle</span>
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Prenom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateNaissance)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Profession)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Pays.nom_fr_fr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                        </td>
+                        <td>
+                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
